@@ -10,10 +10,11 @@
 <body>
     <section class="parallax-container">
         <div class="parallax-layer layer-background"></div>
-        <div class="parallax-layer layer-1"></div>
-        <div class="parallax-layer layer-2"></div>
-        <div class="parallax-layer layer-3 layer-man"></div>
         <div class="parallax-layer layer-4"></div>
+        <div class="parallax-layer layer-3"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="parallax-layer layer-man"></div>
+        <div class="parallax-layer layer-1"></div>
     </section>
     <section class="text text1">
         <h1>Parallax Effect</h1>
@@ -25,5 +26,37 @@
         <p>Lorem ipsum</p>
         <p>Creating parallax effect</p>
     </section>
+    
+    
+        
+   
+    <script>
+        
+        let elems = document.getElementsByClassName("parallax-layer");
+        console.log(elems);
+        window.onscroll = () => {
+            let ratio = (window.innerWidth / window.innerHeight);
+            for (let el of elems) {
+                if (el.classList.contains("layer-man")) {
+                    el.style.transform = "translateX(-" + (window.scrollY/2 * ratio) / 2  + "px) translateY(-" + window.scrollY + "px)";
+                } 
+                else if (el.classList.contains("layer-3")){
+                    el.style.transform = "translateY(-" + window.scrollY/2 + "px)";
+                }  
+                else if (el.classList.contains("layer-background")){
+                    el.style.transform = "translateY(-" + window.scrollY/3 + "px)";
+                }
+                else{
+                    el.style.transform = "translateY(-" + window.scrollY + "px)";
+                }
+
+                
+                
+            }
+        }
+    </script>
+    
+
+    
 </body>
 </html>
