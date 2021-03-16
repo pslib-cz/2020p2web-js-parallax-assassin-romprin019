@@ -26,37 +26,27 @@
         <p>Lorem ipsum</p>
         <p>Creating parallax effect</p>
     </section>
+    <script>
+        
+        
+        var vrstvy = document.getElementsByClassName("parallax-layer");
+        console.log(vrstvy);
+        let ratio = (window.innerWidth / window.innerHeight);
+        window.onscroll = (e) => {
+            vrstvy[1].style.transform = "translateY(-" + window.scrollY*0.2+"px)"
+            vrstvy[2].style.transform = "translateY(-" + window.scrollY*0.4+"px)"
+            vrstvy[3].style.transform = "translateY(-" + window.scrollY*0.6+"px)"
+            vrstvy[4].style.transform = "translateX(-" + (window.scrollY/2 * ratio) / 2  + "px) translateY(-" + window.scrollY + "px)";
+            vrstvy[5].style.transform = "translateY(-" + window.scrollY*1+"px)"
+        }
+            
+    
+    </script>
     
     
         
    
-    <script>
-        
-        let elems = document.getElementsByClassName("parallax-layer");
-        console.log(elems);
-        window.onscroll = () => {
-            let ratio = (window.innerWidth / window.innerHeight);
-            for (let el of elems) {
-                if (el.classList.contains("layer-man")) {
-                    el.style.transform = "translateX(-" + (window.scrollY/2 * ratio) / 2  + "px) translateY(-" + window.scrollY + "px)";
-                } 
-                else if (el.classList.contains("layer-3")){
-                    el.style.transform = "translateY(-" + window.scrollY/2 + "px)";
-                }  
-                else if (el.classList.contains("layer-background")){
-                    el.style.transform = "translateY(-" + window.scrollY/3 + "px)";
-                }
-                else{
-                    el.style.transform = "translateY(-" + window.scrollY + "px)";
-                }
-
-                
-                
-            }
-        }
-    </script>
     
-
     
 </body>
 </html>
